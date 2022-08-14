@@ -10,7 +10,7 @@ class Profile extends React.Component {
   }
 
   getUser = async () => {
-    const res = await axios.get("http://localhost:3000/user");
+    const res = await axios.get(`${process.env.REACT_APP_HEROKU}/user`);
     this.setState({
       userInfo: res.data,
     });
@@ -22,7 +22,7 @@ class Profile extends React.Component {
     this.getUser();
   }
 
-  createHandeMade = async (e) => {
+  createHandMade = async (e) => {
     e.preventDefault();
     const data = {
       name: e.target.itemTitle.value,
@@ -30,14 +30,11 @@ class Profile extends React.Component {
     };
     console.log(data);
 
-    await axios.post(`http://localhost:3000/user`, { data });
+    await axios.post(`${process.env.REACT_APP_HEROKU}/user`, { data });
     this.getUser();
   };
 
-  updateHandMade = async (id ,data) => {
-   let dataUpdate = await axios.put(`http://localhost:3000/user/${id}`, { data });
-   this.getUser();
-  }
+ 
 
 
   render() {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
 
 export default class EditItemModal extends Component {
 
@@ -24,6 +25,19 @@ export default class EditItemModal extends Component {
     }
 
     
+    updateHandmade = async (e) => {
+        e.preventDefault();
+        const id = this.props.allData._id;
+        const data = {
+            title: e.target.itemTitle.value,
+            description: e.target.itemDescription.value,
+            price: e.target.itemPrice.value,
+            imgURL: e.target.itemImgURL.value,
+        };
+        await axios.put(`${process.env.REACT_APP_HEROKU}/item/${id}`, { data });
+        this.props.getHandMade();
+    }
+    
     render() {
         return (
             <>
@@ -36,26 +50,26 @@ export default class EditItemModal extends Component {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <Form onSubmit={this.props.editHandler}>
+                        <Form onSubmit={this.updateHandmade}>
                             <Form.Group className="mb-3" >
                                 <Form.Label>Title</Form.Label>
-                                <Form.Control type="text" placeholder={this.props.allData.title} autoFocus controlId="itemTitle"/>
+                                <Form.Control type="text" placeholder={this.props.allData.title} autoFocus id ="itemTitle"/>
 
                             </Form.Group>
 
                             <Form.Group className="mb-3"  >
                                 <Form.Label>Description</Form.Label>
-                                <Form.Control as="textarea" rows={3} controlId="itemDescription" placeholder={this.props.allData.description}/>
+                                <Form.Control as="textarea" rows={3} id ="itemDescription" placeholder={this.props.allData.description}/>
                             </Form.Group>
 
                             <Form.Group className="mb-3"  >
                                 <Form.Label>Image imgURL</Form.Label>
-                                <Form.Control type="text" placeholder={this.props.allData.imgURL} autoFocus  controlId="itemImgURL"/>
+                                <Form.Control type="text" placeholder={this.props.allData.imgURL} autoFocus  id ="itemImgURL"/>
                             </Form.Group>
 
                             <Form.Group className="mb-3" >
                                 <Form.Label>Price</Form.Label>
-                                <Form.Control type="number" placeholder={this.props.allData.price} autoFocus  controlId="itemPrice" />
+                                <Form.Control type="number" placeholder={this.props.allData.price} autoFocus  id ="itemPrice" />
                             </Form.Group>
 
                             <Modal.Footer>
@@ -63,6 +77,7 @@ export default class EditItemModal extends Component {
                                 <Button variant="secondary" onClick={this.handleClose}>Close</Button>
                                 <Button type='submit' variant="primary" onClick={this.handleClose}>Save Changes</Button>
                             </Modal.Footer>
+                            
                         </Form>
                     </Modal.Body>
 

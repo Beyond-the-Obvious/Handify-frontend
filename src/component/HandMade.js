@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Welcome from "./Welcome";
 import Form from "./Form";
 
-class HandeMade extends React.Component {
+class HandMade extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +12,8 @@ class HandeMade extends React.Component {
     };
   }
 
-  getHandeMade = async () => {
-    const res = await axios.get("http://localhost:3000/item");
+  getHandMade = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_HEROKU}/item`);
     this.setState({
       handify: res.data,
     });
@@ -22,16 +22,16 @@ class HandeMade extends React.Component {
 
   componentDidMount() {
     console.log("we are inside componentDidMount");
-    this.getHandeMade();
+    this.getHandMade();
   }
 
-  deleteHandeMade = async (id) => {
-    await axios.delete(`http://localhost:3000/item/${id}`);
-    this.getHandeMade();
+  deleteHandMade = async (id) => {
+    await axios.delete(`${process.env.REACT_APP_HEROKU}/item/${id}`);
+    this.getHandMade();
     console.log(id);
   };
 
-  createHandeMade = async (e) => {
+  createHandMade = async (e) => {
     e.preventDefault();
     const newItem = {
       title: e.target.itemTitle.value,
@@ -39,26 +39,28 @@ class HandeMade extends React.Component {
       price: e.target.itemPrice.value,
       imgURL: e.target.itemImg.value,
     };
-    await axios.post(`http://localhost:3000/item`, { newItem });
-    this.getHandeMade();
+    await axios.post(`${process.env.REACT_APP_HEROKU}/item`, { newItem });
+    this.getHandMade();
   };
+
+  
 
   render() {
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-        <Form submitHandler={this.createHandeMade} />
-        <button onClick={this.getHandeMade}>Get item Data</button>
+        <Form submitHandler={this.createHandMade} />
+        <button onClick={this.getHandMade}>Get item Data</button>
 
         <Welcome
-          deleteHandeMade={this.deleteHandeMade}
+          deleteHandMade={this.deleteHandMade}
           itemData={this.state.handify}
+          getHandMade={this.getHandMade}
         />
 
-        <h3>No HandeMade Found :(</h3>
       </>
     );
   }
 }
 
-export default HandeMade;
+export default HandMade;
