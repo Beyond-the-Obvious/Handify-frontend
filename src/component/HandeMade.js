@@ -17,7 +17,7 @@ class HandeMade extends React.Component {
     this.setState({
       handify: res.data,
     });
-    console.log(this.state.handify);
+    // console.log(this.state.handify);
   };
 
   componentDidMount() {
