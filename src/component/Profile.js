@@ -34,13 +34,19 @@ class Profile extends React.Component {
     this.getUser();
   };
 
+  updateHandMade = async (id ,data) => {
+   let dataUpdate = await axios.put(`http://localhost:3000/user/${id}`, { data });
+   this.getUser();
+  }
+
+
   render() {
     return (
       <div className="profile_page">
         <section className="row text-secondary my-3">
           <div className="col-md-4">
             <h3 className="text-center text-uppercase">
-              {`${this.userName} Profile`}
+              {`${this.name} Profile`}
             </h3>
 
             <div className="avatar">
@@ -90,7 +96,7 @@ class Profile extends React.Component {
               />
             </div>
 
-            <button className="btn btn-info" onSubmit={this.createHandeMade}>
+            <button className="btn btn-info" onSubmit={this.updateHandMade}>
               Update
             </button>
           </div>
