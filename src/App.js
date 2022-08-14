@@ -25,12 +25,12 @@ class App extends React.Component {
 
           <Routes>
 
-            <Route exact path="/" element={ <Welcome />}> </Route>
+            {/* <Route exact path="/" element={ <Welcome />}> </Route> */}
             <Route exact path="/HandeMade" element={ <HandeMade />}> </Route>
             {
-              isAuthenticated && (
+              
                 <Route path="/profile" element={<Profile />}></Route>
-              )
+              
             }
            
             <Route exact path="/about" element={<About />}> </Route>

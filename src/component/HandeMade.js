@@ -25,7 +25,7 @@ class HandeMade extends React.Component {
   }
 
   componentDidMount() {
-    // console.log("we are inside componentDidMount");
+    console.log("we are inside componentDidMount");
     this.getHandeMade();
 
   }
