@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import AuthButton from '../../Auth0/AuthButtons';
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBNavbar,
@@ -11,41 +10,44 @@ import {
   MDBIcon,
   MDBCollapse,
   MDBBtn,
-} from 'mdb-react-ui-kit';
+} from "mdb-react-ui-kit";
 
 export default function App() {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
-    <MDBNavbar expand='lg' light bgColor='light' >
+    <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
-        <MDBNavbarBrand >Handify</MDBNavbarBrand>
+        <MDBNavbarBrand>Handify</MDBNavbarBrand>
         <MDBNavbarToggler
-          aria-expanded='false'
-          aria-label='Toggle navigation'
+          aria-expanded="false"
+          aria-label="Toggle navigation"
           onClick={() => setShowNavSecond(!showNavSecond)}
         >
-          <MDBIcon icon='bars' fas />
+          <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNavSecond}>
           <MDBNavbarNav>
-            
-            <Link to="/" className="nav-link">Home</Link>         
+            <Link to="/" className="nav-link">Home</Link>
             <Link to="/profile" className="nav-link">Profile</Link>
             <Link to="/about" className="nav-link">About</Link>
             <Link to="/HandeMade" className="nav-link">HandeMade</Link>
+            <Link to="/signup" className="nav-link">Sign Up</Link>
 
-            <MDBNavbarLink ></MDBNavbarLink>
-            <input className='form-control' placeholder="Type query" aria-label="Search" type='Search' />
-          <MDBBtn outline >Search</MDBBtn>
-          <MDBNavbarLink ></MDBNavbarLink>
-          <AuthButton />
-          <MDBNavbarLink ></MDBNavbarLink>
-          <MDBNavbarLink > 
-              <MDBIcon fas icon='shopping-cart' />
+            <MDBNavbarLink></MDBNavbarLink>
+            <input
+              className="form-control"
+              placeholder="Type query"
+              aria-label="Search"
+              type="Search"
+            />
+            <MDBBtn outline>Search</MDBBtn>
+            <MDBNavbarLink></MDBNavbarLink>
+            <MDBNavbarLink></MDBNavbarLink>
+            <MDBNavbarLink>
+              <MDBIcon fas icon="shopping-cart" />
             </MDBNavbarLink>
           </MDBNavbarNav>
-          
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
