@@ -1,4 +1,4 @@
-import logo from '../assets/logo2.jpg'
+
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
@@ -36,7 +36,7 @@ export default function App() {
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <img src={logo} alt="Logo" />
+             // <img src={logo} alt="Logo" />
               <p>
                 Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                 consectetur adipisicing elit.
@@ -121,3 +121,4 @@ export default function App() {
     </MDBFooter>
   );
 }
+

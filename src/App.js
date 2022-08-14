@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './component/Navbar/Index';
 import Footer from './component/Footer';
@@ -39,9 +40,12 @@ class App extends React.Component {
 
           <Footer />
         </Router>
+
       </>
     )
   }
 }
 
-export default withAuth0(App);
+
+export default App;
+
