@@ -31,7 +31,7 @@ export default function App() {
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/profile" className="nav-link">Profile</Link>
             <Link to="/about" className="nav-link">About</Link>
-            <Link to="/HandeMade" className="nav-link">HandeMade</Link>
+            <Link to="/HandMade" className="nav-link">HandMade</Link>
             <Link to="/signup" className="nav-link">Sign Up</Link>
 
             <MDBNavbarLink></MDBNavbarLink>
