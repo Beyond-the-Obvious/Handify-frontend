@@ -1,30 +1,51 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Header from './component/Header';
-import Login from './component/login'
-class App extends React.Component{
-  render(){
+import Header from './component/Navbar/Index';
+import Footer from './component/Footer';
+import HandeMade from './component/HandeMade';
+import Welcome from './component/Welcome';
+import Profile from './component/Profile';
+import About from './component/About';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+import { withAuth0 } from '@auth0/auth0-react';
+
+class App extends React.Component {
+  render() {
+    const { isAuthenticated } = this.props.auth0;
     return (
       <>
+        <Router>
+          <Header />
+
+          <Routes>
+
+            {/* <Route exact path="/" element={ <Welcome />}> </Route> */}
+            <Route exact path="/HandeMade" element={ <HandeMade />}> </Route>
+            {
+              
+                <Route path="/profile" element={<Profile />}></Route>
+              
+            }
+           
+            <Route exact path="/about" element={<About />}> </Route>
       
-      <Header />
+          </Routes>
 
-      <Router>
+          <Footer />
+        </Router>
 
-      <div className="auth-wrapper">
-          <div className="auth-inner">
-            <Routes>
-              <Route exact path="/" element={<Login />} />
-              <Route path="/sign-in" element={<Login />} />
-            </Routes>
-          </div>
-        </div>
-      </Router>
       </>
     )
   }
 }
 
+
 export default App;
+
