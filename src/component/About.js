@@ -65,8 +65,3 @@ const About = () => {
 };
 
 export default About;
-// Image
-// Image
-// Image
-// Image
-// Image
