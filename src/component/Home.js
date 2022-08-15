@@ -11,28 +11,18 @@ import {
   MDBCollapse,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import logo from '../assets/handifylogo.png';
+
 
 
 export default class Home extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isOpen: false,
-  //   };
-  //   this.toggleCollapse = this.toggleCollapse.bind(this);
-  // }
-  
-  // toggleCollapse() {
-  //   this.setState({ isOpen: !this.state.isOpen });
-  // }
-
   render() {
   return (
-    <>
+
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
-        <MDBNavbarBrand>Handify</MDBNavbarBrand>
+        <MDBNavbarBrand> <img src={ logo } alt="Logo" className="logoImg" /></MDBNavbarBrand>
         <MDBNavbarToggler
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -44,10 +34,10 @@ export default class Home extends React.Component {
           <MDBNavbarNav>
             
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/Login" className="nav-link">Login</Link>
-            <Link to="/signup" className="nav-link">Sign Up</Link>
+            {/* <Link to="/Login" className="nav-link">Login</Link> */}
+            {/* <Link to="/signup" className="nav-link">SignUp</Link> */}
             <Link to="/profile" className="nav-link">Profile</Link>
-             <Link to="/about" className="nav-link">About</Link>
+            <Link to="/about" className="nav-link">About</Link>
            
  
             <MDBNavbarLink></MDBNavbarLink>
@@ -68,12 +58,7 @@ export default class Home extends React.Component {
 
       </MDBContainer>
     </MDBNavbar>
-
-
-
-
-
-    </>
+    
   );
 }
 }

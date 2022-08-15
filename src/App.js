@@ -24,54 +24,32 @@ function App() {
   const [ user, setLoginUser] = useState({})
 
     return (
-      <>
-      <div className="App">
-      <Router>
-      <Routes>
 
-      <Route exact path="/" element={user && user._id ? <Homepage setLoginUser={setLoginUser} /> : <Log setLoginUser={setLoginUser}/>}></Route>
+      <div className="App">
+       
+      <Router>
+        <Home/>
+        <Routes>
+      
+        <Route exact path="/" element={user && user._id ? <Homepage setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route>
+
+        <Route exact path="/Profile" element={user && user._id ? <Profile setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route>
+
+        {/* <Route exact path="/Home" element={user && user._id ? <Home setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route> */}
+
 
           
           <Route exact path="/login" element={<Log setLoginUser={setLoginUser}/>}></Route>
-
-          
           <Route exact path="/register" element={<Register />}></Route>
-
-          <Route exact path="/Home" element={<Home />}></Route>
-          
-
-          <Route exact path="/Profile" element={<Profile />}></Route>
-
-
+          {/* <Route exact path="/Home" element={<Home />}></Route> */}
+          {/* <Route exact path="/Profile" element={<Profile />}></Route> */}
           <Route exact path="/About" element={<About />}></Route>
 
-          
-
+           
           </Routes>
+          <Footer />
       </Router>
     </div>
-
-        {/* <Router>
-          <Header />
-
-          
-
-          <Routes>
-
-          <Route  path="/" element={<Login />}></Route>
-          <Route exact path="/login" element={<Login />}></Route>
-          <Route exact path="/signup" element={<SignUp />}></Route>
-          <Route exact path="/Home" element={<Home />}></Route>
-          <Route exact path="/Profile" element={<Profile />}></Route>
-          <Route exact path="/Product" element={<Product />}></Route>
-          <Route exact path="/About" element={<About />}></Route>
-
-            
-          </Routes>
-
-          <Footer />
-        </Router> */}
-      </>
     );
   }
 

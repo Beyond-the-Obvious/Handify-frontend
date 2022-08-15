@@ -31,7 +31,7 @@ export default class SignUp extends Component {
     return (
       <form onSubmit={this.createUser}>
         
-        <h3>Sign Up</h3>
+        <h3>SignUp</h3>
 
         <div className="mb-3">
           <label id="name">User name</label>
