@@ -45,8 +45,8 @@ export default function App() {
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p><a href="/About" className="text-reset">About us</a></p>
-              <p><a href="/Signup" className="text-reset">Sign up</a></p>
-              <p><a href="/Product" className="text-reset">Products</a></p>
+              <p><a href="/contact" className="text-reset">Contact us</a></p>
+              <p><a href="/Profile" className="text-reset">Profile</a></p>
               {/* <p><a href="/Home" className="text-reset">Home</a></p> */}
             </MDBCol>
 
@@ -63,8 +63,7 @@ export default function App() {
       </section>
 
       <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}>
-        Â© 2022 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">Hadify.com</a>
+        © 2022 Copyright | <a className="text-reset fw-bold" href="/">Handify</a>
       </div>
     </MDBFooter>
   );

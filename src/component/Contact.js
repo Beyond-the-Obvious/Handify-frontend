@@ -4,7 +4,16 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+import swal from 'sweetalert';
+
 class Contact extends Component {
+
+    // adding swal to show success message on submitting form
+    onClick = (e) => {
+        e.preventDefault();
+        swal("Success!", "Your message has been sent!", "success");
+    }
+
     render() {
         return (
             <>
@@ -34,7 +43,7 @@ class Contact extends Component {
                  <Form.Control as="textarea" rows={3}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button onClick={this.onClick} variant="primary" type="submit">Submit</Button>
 
               </Form>
             </>

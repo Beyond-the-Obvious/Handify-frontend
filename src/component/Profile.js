@@ -23,8 +23,7 @@ class Profile extends React.Component {
   deleteProduct = async (id) => {
     await axios.delete(`${process.env.REACT_APP_HEROKU}/item/${id}`);
     this.getProduct();
-    /*     console.log(id);
-     */
+    // console.log(id);
   };
 
   createProduct = async (e) => {
@@ -44,13 +43,12 @@ class Profile extends React.Component {
     this.setState({
       userInfo: res.data,
     });
-    /*     console.log(this.state.userInfo);
-     */
+  // console.log(this.state.userInfo);
   };
 
   componentDidMount() {
-    /*     console.log("we are inside componentDidMount");
-     */ this.getUser();
+    // console.log("we are inside componentDidMount");
+    this.getUser();
     this.getProduct();
   }
 
@@ -80,12 +78,37 @@ class Profile extends React.Component {
     console.log(this.state.userInfo._id);
   };
 
+
+  // // admin functions
+  // getUser = async () => {
+  //   const res = await axios.get(`${process.env.REACT_APP_HEROKU}/login`);
+  //   this.setState({
+  //     userInfo: res.data,
+  //   });
+  // };
+
+  // updateUser = async (e) => {
+  //   e.preventDefault();
+  //   const id = this.userInfo._id;
+  //   const data = {
+  //     name: e.target.userName.value,
+  //     email: e.target.userEmail.value,
+  //     password: e.target.userPassword.value,
+  //   };
+  //   await axios.put(`${process.env.REACT_APP_HEROKU}/login/${id}`, { data });
+  //   this.getUser();
+  //   console.log(this.state.userInfo);
+  // };
+
+
+
+
   render() {
     return (
       <div className="profile_page">
         <section className="row text-secondary my-3">
-          <div className="col-md-4">
-            <h3 className="text-center text-uppercase">{`Your Profile`}</h3>
+          {/* <div className="col-md-4">
+            <h3 className="text-center text-uppercase">Profile</h3>
 
             <div className="avatar">
               <img
@@ -138,9 +161,9 @@ class Profile extends React.Component {
             <button className="btn btn-info" onSubmit={this.updateUser}>
               Update
             </button>
-          </div>
+          </div> */}
 
-          <div class="product">
+          <div className="product">
             <>
               <h2>My Products</h2>
 
