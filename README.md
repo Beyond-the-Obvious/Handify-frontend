@@ -1,11 +1,11 @@
 # Team Members #
-Saeed Kokash (TL)
-Omar Qattam
-Ali Mohammad
-Bashar Al-Zrigat
-Firas Yacoup
-Bayan Al-Jawawdeh
-Shaima Al-Khateeb
+- Saeed Kokash (TL)
+- Omar Qattam
+- Ali Mohammad
+- Bashar Al-Zrigat
+- Firas Yacoup
+- Bayan Al-Jawawdeh
+- Shaima Al-Khateeb
 
 # Applicaiton Idea #
 
