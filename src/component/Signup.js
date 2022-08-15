@@ -10,7 +10,7 @@ export default class SignUp extends Component {
   }
 
   getUsers = async () => {
-    let usersData = await axios.get(`${process.env.REACT_APP_SERVER}/user`);
+    let usersData = await axios.get(`${process.env.REACT_APP_HEROKU}/user`);
     this.setState({ users: usersData.data });
   };
 
@@ -23,7 +23,7 @@ export default class SignUp extends Component {
       password: e.target.password.value,
     };
 
-    await axios.post(`${process.env.REACT_APP_SERVER}/user`, { newUser });
+    await axios.post(`${process.env.REACT_APP_HEROKU}/user`, { newUser });
     //this.getUsers()
   };
 

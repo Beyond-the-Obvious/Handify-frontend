@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Welcome from "./Welcome";
+import ProductCard from "./ProductCard";
 import Form from "./Form";
 
-class HandMade extends React.Component {
+class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class HandMade extends React.Component {
     };
   }
 
-  getHandMade = async () => {
+  getProduct = async () => {
     const res = await axios.get(`${process.env.REACT_APP_HEROKU}/item`);
     this.setState({
       handify: res.data,
@@ -22,16 +22,16 @@ class HandMade extends React.Component {
 
   componentDidMount() {
     console.log("we are inside componentDidMount");
-    this.getHandMade();
+    this.getProduct();
   }
 
-  deleteHandMade = async (id) => {
+  deleteProduct = async (id) => {
     await axios.delete(`${process.env.REACT_APP_HEROKU}/item/${id}`);
-    this.getHandMade();
+    this.getProduct();
     console.log(id);
   };
 
-  createHandMade = async (e) => {
+  createProduct = async (e) => {
     e.preventDefault();
     const newItem = {
       title: e.target.itemTitle.value,
@@ -40,7 +40,7 @@ class HandMade extends React.Component {
       imgURL: e.target.itemImg.value,
     };
     await axios.post(`${process.env.REACT_APP_HEROKU}/item`, { newItem });
-    this.getHandMade();
+    this.getProduct();
   };
 
   
@@ -49,13 +49,13 @@ class HandMade extends React.Component {
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-        <Form submitHandler={this.createHandMade} />
-        <button onClick={this.getHandMade}>Get item Data</button>
+        <Form submitHandler={this.createProduct} />
+        <button onClick={this.getProduct}>Get item Data</button>
 
-        <Welcome
-          deleteHandMade={this.deleteHandMade}
+        <ProductCard
+          deleteProduct={this.deleteProduct}
           itemData={this.state.handify}
-          getHandMade={this.getHandMade}
+          getProduct={this.getProduct}
         />
 
       </>
@@ -63,4 +63,4 @@ class HandMade extends React.Component {
   }
 }
 
-export default HandMade;
+export default Product;

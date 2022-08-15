@@ -5,7 +5,6 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       userInfo: [],
-      userName: "",
     };
   }
 
@@ -22,11 +21,12 @@ class Profile extends React.Component {
     this.getUser();
   }
 
-  createHandMade = async (e) => {
+  createUser = async (e) => {
     e.preventDefault();
     const data = {
-      name: e.target.itemTitle.value,
-      password: e.target.itemPrice.value,
+      name: e.target.userName.value,
+      email: e.target.userEmail.value,
+      password: e.target.userPassword.value,
     };
     console.log(data);
 
@@ -34,16 +34,27 @@ class Profile extends React.Component {
     this.getUser();
   };
 
+  updateUser = async (e) => {
+    e.preventDefault();
+    const id = this.userInfo._id;
+    const data = {
+      name: e.target.userName.value,
+      email: e.target.userEmail.value,
+      password: e.target.userPassword.value,
+    };
+    await axios.put(`${process.env.REACT_APP_HEROKU}/user/${id}`, { data });
+    this.getUser();
+    console.log(this.state.userInfo._id);
+}
  
-
-
   render() {
     return (
+      
       <div className="profile_page">
         <section className="row text-secondary my-3">
           <div className="col-md-4">
             <h3 className="text-center text-uppercase">
-              {`${this.name} Profile`}
+              {`${this.userName} Profile`}
             </h3>
 
             <div className="avatar">
@@ -54,9 +65,7 @@ class Profile extends React.Component {
                 height={200}
               />
               <span>
-                <p>
-                  <i className="fas fa-camera"></i>Change
-                </p>
+                <p><i className="fas fa-camera"></i>Change</p>
                 <input type="file" name="file" id="file_up" accept="image/*" />
               </span>
             </div>
@@ -68,7 +77,7 @@ class Profile extends React.Component {
                 name="name"
                 className="form-control"
                 placeholder="Your name"
-                id="itemTitle"
+                id="userName"
               />
             </div>
 
@@ -78,6 +87,7 @@ class Profile extends React.Component {
                 type="text"
                 name="email"
                 className="form-control"
+                id='userEmail'
                 disabled={true}
               />
             </div>
@@ -89,11 +99,11 @@ class Profile extends React.Component {
                 name="password"
                 className="form-control"
                 placeholder="Your new password"
-                id="itemPrice"
+                id="userPassword"
               />
             </div>
 
-            <button className="btn btn-info" onSubmit={this.updateHandMade}>
+            <button className="btn btn-info" onSubmit={this.updateUser}>
               Update
             </button>
           </div>
