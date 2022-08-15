@@ -25,7 +25,7 @@ export default class EditItemModal extends Component {
     }
 
     
-    updateHandmade = async (e) => {
+    updateProduct = async (e) => {
         e.preventDefault();
         const id = this.props.allData._id;
         const data = {
@@ -35,7 +35,7 @@ export default class EditItemModal extends Component {
             imgURL: e.target.itemImgURL.value,
         };
         await axios.put(`${process.env.REACT_APP_HEROKU}/item/${id}`, { data });
-        this.props.getHandMade();
+        this.props.getProduct();
     }
     
     render() {
@@ -50,7 +50,7 @@ export default class EditItemModal extends Component {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <Form onSubmit={this.updateHandmade}>
+                        <Form onSubmit={this.updateProduct}>
                             <Form.Group className="mb-3" >
                                 <Form.Label>Title</Form.Label>
                                 <Form.Control type="text" placeholder={this.props.allData.title} autoFocus id ="itemTitle"/>

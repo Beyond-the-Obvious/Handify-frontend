@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
+
 import {
   MDBContainer,
   MDBNavbar,
@@ -12,27 +13,43 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 
-export default function App() {
-  const [showNavSecond, setShowNavSecond] = useState(false);
 
+export default class Home extends React.Component {
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isOpen: false,
+  //   };
+  //   this.toggleCollapse = this.toggleCollapse.bind(this);
+  // }
+  
+  // toggleCollapse() {
+  //   this.setState({ isOpen: !this.state.isOpen });
+  // }
+
+  render() {
   return (
+    <>
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
         <MDBNavbarBrand>Handify</MDBNavbarBrand>
         <MDBNavbarToggler
           aria-expanded="false"
           aria-label="Toggle navigation"
-          onClick={() => setShowNavSecond(!showNavSecond)}
+          // onClick={this.toggleCollapse}
         >
           <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
-        <MDBCollapse navbar show={showNavSecond}>
+        {/* <MDBCollapse navbar isOpen={this.state.isOpen}> */}
           <MDBNavbarNav>
+            
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/profile" className="nav-link">Profile</Link>
             <Link to="/about" className="nav-link">About</Link>
-            <Link to="/HandMade" className="nav-link">HandMade</Link>
+            <Link to="/Product" className="nav-link">Product</Link>
             <Link to="/signup" className="nav-link">Sign Up</Link>
+            <Link to="/Login" className="nav-link">Login</Link>
 
             <MDBNavbarLink></MDBNavbarLink>
             <input
@@ -48,8 +65,12 @@ export default function App() {
               <MDBIcon fas icon="shopping-cart" />
             </MDBNavbarLink>
           </MDBNavbarNav>
-        </MDBCollapse>
+        {/* </MDBCollapse> */}
+
       </MDBContainer>
     </MDBNavbar>
+
+    </>
   );
+}
 }
