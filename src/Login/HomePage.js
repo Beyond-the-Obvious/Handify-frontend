@@ -1,7 +1,9 @@
 import React from "react";
 
 import axios from "axios";
-import ProductCard from "../component/ProductCard";
+import ProductCardHome from "../component/ProductCardHome";
+
+import Row from "react-bootstrap/Row";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -27,30 +29,24 @@ export default class HomePage extends React.Component {
     this.props.setLoginUser();
   };
 
+
+
   render() {
     return (
       <div>
-        <h1>Hello Homepage</h1>
-        <ProductCard
-          itemData={this.state.handify}
-          getProduct={this.getProduct}
-        />
-
-        <div className="button" onClick={this.setLoginUser}>
-          Logout
+        <h1>Check out our new Products!</h1>
+        <Row xs={1} md={4} className="g-4">
+          {this.state.handify.map((item, idx) => (
+            <div key={idx}>
+        <ProductCardHome  itemData={item} getProduct={this.getProduct}/>
         </div>
+          ))}
+        </Row>
+
+        {/* <div className="button" onClick={this.setLoginUser}>
+          Logout
+        </div> */}
       </div>
     );
   }
 }
-
-// const Homepage = ({setLoginUser}) => {
-//     return (
-//         <div className="homepage">
-//             <h1>Hello Homepage</h1>
-//             <button className="button" onClick={() => setLoginUser({})} >Logout</button>
-//         </div>
-//     )
-// }
-
-// export default Homepage

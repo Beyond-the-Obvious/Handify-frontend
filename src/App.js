@@ -7,6 +7,8 @@ import About from "./component/About";
 import SignUp from "./component/Signup";
 import Login from "./component/Login";
 import Home from "./component/Home";
+import Contact from  "./component/Contact";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 /* import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  */
@@ -31,7 +33,7 @@ function App() {
         <Home/>
         <Routes>
       
-        <Route exact path="/" element={user && user._id ? <Homepage setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route>
+        {/* <Route exact path="/" element={user && user._id ? <Homepage setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route> */}
 
         <Route exact path="/Profile" element={user && user._id ? <Profile setLoginUser={setLoginUser}  /> : <Log setLoginUser={setLoginUser}/>}></Route>
 
@@ -41,11 +43,12 @@ function App() {
           
           <Route exact path="/login" element={<Log setLoginUser={setLoginUser}/>}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          {/* <Route exact path="/Home" element={<Home />}></Route> */}
-          {/* <Route exact path="/Profile" element={<Profile />}></Route> */}
+          <Route exact path="/" element={<Homepage />}></Route>
           <Route exact path="/About" element={<About />}></Route>
+          <Route exact path="/contact" element={<Contact />}></Route>
+          {/* <Route exact path="/cart" element={<Cart />}></Route> */}
 
-           
+           {/* <Route exact path="/Profile" element={<Profile />}></Route> */}
           </Routes>
           <Footer />
       </Router>

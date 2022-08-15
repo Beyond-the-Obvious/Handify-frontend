@@ -8,7 +8,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       userInfo: [],
-      handify: []
+      handify: [],
     };
   }
 
@@ -20,12 +20,12 @@ class Profile extends React.Component {
     // console.log(this.state.handify);
   };
 
-
   deleteProduct = async (id) => {
     await axios.delete(`${process.env.REACT_APP_HEROKU}/item/${id}`);
     this.getProduct();
-/*     console.log(id);
- */  };
+    /*     console.log(id);
+     */
+  };
 
   createProduct = async (e) => {
     e.preventDefault();
@@ -39,20 +39,19 @@ class Profile extends React.Component {
     this.getProduct();
   };
 
-
   getUser = async () => {
     const res = await axios.get(`${process.env.REACT_APP_HEROKU}/user`);
     this.setState({
       userInfo: res.data,
     });
-/*     console.log(this.state.userInfo);
- */  };
+    /*     console.log(this.state.userInfo);
+     */
+  };
 
   componentDidMount() {
-/*     console.log("we are inside componentDidMount");
- */    this.getUser();
+    /*     console.log("we are inside componentDidMount");
+     */ this.getUser();
     this.getProduct();
-
   }
 
   createUser = async (e) => {
@@ -79,17 +78,14 @@ class Profile extends React.Component {
     await axios.put(`${process.env.REACT_APP_HEROKU}/user/${id}`, { data });
     this.getUser();
     console.log(this.state.userInfo._id);
-}
- 
+  };
+
   render() {
     return (
-      
       <div className="profile_page">
         <section className="row text-secondary my-3">
           <div className="col-md-4">
-            <h3 className="text-center text-uppercase">
-              {`Your Profile`}
-            </h3>
+            <h3 className="text-center text-uppercase">{`Your Profile`}</h3>
 
             <div className="avatar">
               <img
@@ -99,7 +95,9 @@ class Profile extends React.Component {
                 height={200}
               />
               <span>
-                <p><i className="fas fa-camera"></i>Change</p>
+                <p>
+                  <i className="fas fa-camera"></i>Change
+                </p>
                 <input type="file" name="file" id="file_up" accept="image/*" />
               </span>
             </div>
@@ -121,7 +119,7 @@ class Profile extends React.Component {
                 type="text"
                 name="email"
                 className="form-control"
-                id='userEmail'
+                id="userEmail"
                 disabled={true}
               />
             </div>
@@ -142,22 +140,19 @@ class Profile extends React.Component {
             </button>
           </div>
 
-<div class= "product">
+          <div class="product">
+            <>
+              <h2>My Products</h2>
 
-<>
-        <h2>My Products</h2>
-        <AddItemForm submitHandler={this.createProduct} />
-{/*         <button onClick={this.getProduct}>Get item Data</button>
- */}
-        <ProductCard
-          deleteProduct={this.deleteProduct}
-          itemData={this.state.handify}
-          getProduct={this.getProduct}
-        />
+              <AddItemForm submitHandler={this.createProduct} />
 
-      </>
-
-      </div>
+              <ProductCard
+                deleteProduct={this.deleteProduct}
+                itemData={this.state.handify}
+                getProduct={this.getProduct}
+              />
+            </>
+          </div>
         </section>
       </div>
     );
