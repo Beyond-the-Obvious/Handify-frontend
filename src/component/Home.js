@@ -13,8 +13,6 @@ import {
 } from "mdb-react-ui-kit";
 import logo from '../assets/handifylogo.png';
 
-
-
 export default class Home extends React.Component {
 
   render() {
@@ -38,6 +36,7 @@ export default class Home extends React.Component {
             {/* <Link to="/signup" className="nav-link">SignUp</Link> */}
             <Link to="/profile" className="nav-link">Profile</Link>
             <Link to="/about" className="nav-link">About</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
            
  
             <MDBNavbarLink></MDBNavbarLink>
@@ -51,7 +50,7 @@ export default class Home extends React.Component {
             <MDBNavbarLink></MDBNavbarLink>
             <MDBNavbarLink></MDBNavbarLink>
             <MDBNavbarLink>
-              <MDBIcon fas icon="shopping-cart" />
+            <a href="/cart" className="me-4 text-reset"><MDBIcon fas icon="shopping-cart"  /></a>
             </MDBNavbarLink>
           </MDBNavbarNav>
         {/* </MDBCollapse> */}
