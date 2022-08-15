@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductCard from "./ProductCard";
-import Form from "./Form";
+import AddItemForm from "./AddItemForm";
 
 class Product extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Product extends React.Component {
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-        <Form submitHandler={this.createProduct} />
+        <AddItemForm submitHandler={this.createProduct} />
         <button onClick={this.getProduct}>Get item Data</button>
 
         <ProductCard

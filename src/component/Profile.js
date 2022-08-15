@@ -1,24 +1,58 @@
 import React from "react";
 import axios from "axios";
+import ProductCard from "./ProductCard";
+import AddItemForm from "./AddItemForm";
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       userInfo: [],
+      handify: []
     };
   }
+
+  getProduct = async () => {
+    const res = await axios.get(`${process.env.REACT_APP_HEROKU}/item`);
+    this.setState({
+      handify: res.data,
+    });
+    // console.log(this.state.handify);
+  };
+
+
+  deleteProduct = async (id) => {
+    await axios.delete(`${process.env.REACT_APP_HEROKU}/item/${id}`);
+    this.getProduct();
+/*     console.log(id);
+ */  };
+
+  createProduct = async (e) => {
+    e.preventDefault();
+    const newItem = {
+      title: e.target.itemTitle.value,
+      description: e.target.itemdes.value,
+      price: e.target.itemPrice.value,
+      imgURL: e.target.itemImg.value,
+    };
+    await axios.post(`${process.env.REACT_APP_HEROKU}/item`, { newItem });
+    this.getProduct();
+  };
+
 
   getUser = async () => {
     const res = await axios.get(`${process.env.REACT_APP_HEROKU}/user`);
     this.setState({
       userInfo: res.data,
     });
-    console.log(this.state.userInfo);
-  };
+/*     console.log(this.state.userInfo);
+ */  };
 
   componentDidMount() {
-    console.log("we are inside componentDidMount");
-    this.getUser();
+/*     console.log("we are inside componentDidMount");
+ */    this.getUser();
+    this.getProduct();
+
   }
 
   createUser = async (e) => {
@@ -54,7 +88,7 @@ class Profile extends React.Component {
         <section className="row text-secondary my-3">
           <div className="col-md-4">
             <h3 className="text-center text-uppercase">
-              {`${this.userName} Profile`}
+              {`Your Profile`}
             </h3>
 
             <div className="avatar">
@@ -108,26 +142,22 @@ class Profile extends React.Component {
             </button>
           </div>
 
-          <div className="col-md-8">
-            <h3 className="text-uppercase">Orders</h3>
+<div class= "product">
 
-            <div className="my-3 table-responsive">
-              <table
-                className="table-bordered table-hover w-100 text-uppercase"
-                style={{ minWidth: "600px", cursor: "pointer" }}
-              >
-                <thead className="bg-light font-weight-bold">
-                  <tr>
-                    <td className="p-2">id</td>
-                    <td className="p-2">date</td>
-                    <td className="p-2">total</td>
-                    <td className="p-2">delivered</td>
-                    <td className="p-2">paid</td>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-          </div>
+<>
+        <h2>My Products</h2>
+        <AddItemForm submitHandler={this.createProduct} />
+{/*         <button onClick={this.getProduct}>Get item Data</button>
+ */}
+        <ProductCard
+          deleteProduct={this.deleteProduct}
+          itemData={this.state.handify}
+          getProduct={this.getProduct}
+        />
+
+      </>
+
+      </div>
         </section>
       </div>
     );

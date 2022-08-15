@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React from "react";
-
 import {
   MDBContainer,
   MDBNavbar,
@@ -45,12 +44,12 @@ export default class Home extends React.Component {
           <MDBNavbarNav>
             
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/profile" className="nav-link">Profile</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/Product" className="nav-link">Product</Link>
-            <Link to="/signup" className="nav-link">Sign Up</Link>
             <Link to="/Login" className="nav-link">Login</Link>
-
+            <Link to="/signup" className="nav-link">Sign Up</Link>
+            <Link to="/profile" className="nav-link">Profile</Link>
+             <Link to="/about" className="nav-link">About</Link>
+           
+ 
             <MDBNavbarLink></MDBNavbarLink>
             <input
               className="form-control"
@@ -69,6 +68,10 @@ export default class Home extends React.Component {
 
       </MDBContainer>
     </MDBNavbar>
+
+
+
+
 
     </>
   );
