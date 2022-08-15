@@ -1,11 +1,7 @@
 import React from "react";
-import Header from "./component/Home";
 import Footer from "./component/Footer";
-import Product from "./component/Product";
 import Profile from "./component/Profile";
 import About from "./component/About";
-import SignUp from "./component/Signup";
-import Login from "./component/Login";
 import Home from "./component/Home";
 import Contact from  "./component/Contact";
 
