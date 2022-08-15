@@ -9,7 +9,7 @@ export default class ProductCard extends Component {
   render() {
     return (
       <>
-        <h1>Welcome to Handify App</h1>
+       
 
         <Row xs={1} md={4} className="g-4">
           {this.props.itemData.map((item, idx) => (
