@@ -41,7 +41,7 @@ export default class EditItemModal extends Component {
     render() {
         return (
             <>
-                <Button variant="primary" onClick={this.handleShow} > Edit Item </Button>
+                <Button className="cartBtn" variant="primary" onClick={this.handleShow} > Edit Item </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose} >
 
@@ -74,8 +74,8 @@ export default class EditItemModal extends Component {
 
                             <Modal.Footer>
                                 
-                                <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                                <Button type='submit' variant="primary" onClick={this.handleClose}>Save Changes</Button>
+                                <Button className="cartBtn" variant="secondary" onClick={this.handleClose}>Close</Button>
+                                <Button className="cartBtn" type='submit' variant="primary" onClick={this.handleClose}>Save Changes</Button>
                             </Modal.Footer>
                             
                         </Form>

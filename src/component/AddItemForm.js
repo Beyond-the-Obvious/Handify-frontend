@@ -28,7 +28,7 @@ handleShow = () => {
       <>
    <div>
 
-    <Button variant="primary" onClick={this.handleShow} > Add Item </Button>
+    <Button className="cartBtnAdd" variant="primary" onClick={this.handleShow} > Add Item </Button>
 
                 <Modal show={this.state.show} onHide={this.handleClose} >
 
@@ -61,8 +61,8 @@ handleShow = () => {
 
                             <Modal.Footer>
                                 
-                                <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                                <Button type='submit' variant="primary" onClick={this.handleClose}>Save Changes</Button>
+                                <Button className="cartBtn" variant="secondary" onClick={this.handleClose}>Close</Button>
+                                <Button className="cartBtn" type='submit' variant="primary" onClick={this.handleClose}>Save Changes</Button>
                             </Modal.Footer>
                             
                         </Form>

@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import AddItemForm from "./AddItemForm";
+import Button from "react-bootstrap/Button";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -100,12 +101,16 @@ class Profile extends React.Component {
   //   console.log(this.state.userInfo);
   // };
 
+  setLoginUser = async () => {
+    this.props.setLoginUser();
+  };
+
 
 
 
   render() {
     return (
-      <div className="profile_page">
+      <div className="login-body">
         <section className="row text-secondary my-3">
           {/* <div className="col-md-4">
             <h3 className="text-center text-uppercase">Profile</h3>
@@ -163,17 +168,22 @@ class Profile extends React.Component {
             </button>
           </div> */}
 
+          
+
           <div className="product">
             <>
-              <h2>My Products</h2>
+              <h1 className="contactTxt">My Products</h1>
 
               <AddItemForm submitHandler={this.createProduct} />
+
+              
 
               <ProductCard
                 deleteProduct={this.deleteProduct}
                 itemData={this.state.handify}
                 getProduct={this.getProduct}
               />
+              <Button className="cartBtn" onClick={this.setLoginUser}>Logout</Button>
             </>
           </div>
         </section>

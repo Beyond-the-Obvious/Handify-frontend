@@ -25,7 +25,7 @@ export default class ProductCard extends Component {
 
                   <EditItemModal allData={item} getProduct={this.props.getProduct}/>
 
-                  <Button onClick={() => this.props.deleteProduct(item._id)}>Delete</Button>
+                  <Button className="cartBtn" onClick={() => this.props.deleteProduct(item._id)}>Delete</Button>
 
                 </Card.Body>
               </Card>
