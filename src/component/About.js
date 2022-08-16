@@ -57,8 +57,8 @@ const About = () => {
   };
 
   return (
-    <div>
-      <h1>Meet our Developers</h1>
+    <div className="login-body">
+      <h1 className='contactTxt' >Meet our Developers</h1>
       <div className="grid">{cardInfo.map(renderCard)}</div>
     </div>
   );

@@ -38,8 +38,8 @@ favClick = () => {
                   <Card.Title style={{ color: "black" }}>{this.props.itemData.title}</Card.Title>
                   <Card.Text style={{ color: "black" }}>{this.props.itemData.description}</Card.Text>
                   <Card.Text style={{ color: "black" }}>{this.props.itemData.price} JD</Card.Text>
-                  <Button  onClick={this.favClick} ><span>👍{this.state.favClickCounter}</span></Button>
-                  <Button>Add to Cart</Button>
+                  <Button  className="cartBtn" onClick={this.favClick} ><span>👍{this.state.favClickCounter}</span></Button>
+                  <Button className="cartBtn">Add to Cart</Button>
 
                 </Card.Body>
               </Card>

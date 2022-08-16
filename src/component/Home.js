@@ -8,7 +8,7 @@ import {
   MDBNavbarNav,
   MDBNavbarLink,
   MDBIcon,
-  MDBCollapse,
+  // MDBCollapse,
   MDBBtn,
 } from "mdb-react-ui-kit";
 import logo from '../assets/handifylogo.png';
